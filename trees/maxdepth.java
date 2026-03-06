@@ -12,7 +12,7 @@ class TreeNode {
     }
 }
 
-public class maxDepthBinaryTree{
+public class maxdepth{
 
     // You only modify this function
     public static int maxDepth(TreeNode root) {

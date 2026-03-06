@@ -1,4 +1,7 @@
 package trees;
+
+// import org.w3c.dom.Node;
+
 // import java.util.Scanner;
 class TreeNode {
     int val;
@@ -12,9 +15,9 @@ class TreeNode {
     }
 }
 
-public class maxDepthBinaryTree{
+public class Diameterofbinarytree{
 
-    // You only modify this function
+    //approch 1 finding height and diameter diffrently with T.C=O(N^2)
     public static int maxDepth(TreeNode root) {
         if (root == null) {
             return 0;
@@ -25,6 +28,15 @@ public class maxDepthBinaryTree{
 
         return 1 + Math.max(left, right);
     }
+    public static int Diameter(TreeNode root){
+        if(root==null) return 0;
+
+        int ld = Diameter(root.left);
+        int rd = Diameter(root.right);
+        int d3=maxDepth(root.left)+maxDepth(root.right);
+        return Math.max(d3,Math.max(ld,rd));
+    }
+    //for the other method that is in noted
 
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
@@ -33,7 +45,9 @@ public class maxDepthBinaryTree{
         root.left.left = new TreeNode(4);
         // Scanner sc = new Scanner(System.in);
         int depth = maxDepth(root);
+        int d=Diameter(root);
 
         System.out.println("Maximum Depth: " + depth);
+        System.out.println("Diameter -" + d);
     }
 }
